@@ -67,6 +67,15 @@ function copyAddress() {
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 2500);
   });
+  
+}
+function copyDiscord() {
+  const addr = document.getElementById('discord-addres').textContent;
+  navigator.clipboard.writeText(addr).then(() => {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  });
 }
 
 // ── Server status ──
