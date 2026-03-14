@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymJIMC – Minecraft Server</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <nav class="nav">
+      <span class="nav-logo pixel">GymJIMC</span>
+      <ul>
+        <li><a href="#join">Jak se připojit</a></li>
+        <li><a href="#events">Eventy</a></li>
+        <li><a href="#voicechat">Voicechat</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <div class="server-badge">● ONLINE</div>
+      <h1 class="pixel" id="hero-title">GymJIMC</h1>
+      <p class="hero-sub" id="hero-subtitle">Školní Minecraft server pro všechny.</p>
+      <a href="#join" class="btn-primary">Jak se připojit →</a>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </header>
+
+  <!-- HOW TO JOIN -->
+  <section id="join" class="section">
+    <div class="container">
+      <h2 class="section-title pixel">Jak se připojit</h2>
+      <p class="section-lead" id="join-intro">Připojit se může kdokoli – stačí mít Minecraft Java Edition a postupovat podle kroků níže.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num pixel">01</div>
+          <div class="step-body">
+            <h3>Spusť Minecraft Java Edition</h3>
+            <p>Ujisti se, že máš nainstalovaný <strong>Minecraft Java Edition</strong> (ne Bedrock). Verze serveru je <strong>1.21.1</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num pixel">02</div>
+          <div class="step-body">
+            <h3>Klikni na „Multiplayer"</h3>
+            <p>V hlavním menu Minecraftu klikni na tlačítko <strong>Multiplayer</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num pixel">03</div>
+          <div class="step-body">
+            <h3>Přidej server</h3>
+            <p>Klikni na <strong>Add Server</strong> (nebo „Přidat server"). Do pole <strong>Server Address</strong> zadej přesně tuto adresu:</p>
+            <div class="address-box">
+              <span id="server-address">gymjimc.org</span>
+              <button class="copy-btn" onclick="copyAddress()">Kopírovat</button>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num pixel">04</div>
+          <div class="step-body">
+            <h3>Připoj se a hraj!</h3>
+            <p id="join-step4">Klikni <strong>Done</strong>, server se zobrazí v seznamu. Dvojklikem se připoj. Přijdou instrukce přímo ve hře. Užij si to!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <span class="pixel info-icon">ℹ</span>
+        <p id="join-note">Máš problém s připojením? Zkus restartovat Minecraft nebo zkontroluj, zda máš správnou verzi. V případě problémů napiš správci serveru.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title pixel">Eventy</h2>
+      <p class="section-lead">Nejbližší a plánované akce na serveru.</p>
+
+      <div id="events-container">
+        <div class="loading-spinner">Načítám eventy…</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICECHAT -->
+  <section id="voicechat" class="section">
+    <div class="container">
+      <h2 class="section-title pixel">Voicechat</h2>
+      <p class="section-lead" id="vc-intro">Na serveru běží <strong>Simple Voice Chat</strong> mod – můžeš mluvit s ostatními hráči přímo ve hře pomocí mikrofonu, prostorově podle polohy.</p>
+
+      <p id="vc-desc">Aby voicechat fungoval, musíš si nainstalovat mod do svého Minecraftu. Vyber verzi podle svého modloaderu:</p>
+
+      <div class="download-cards">
+        <div class="download-card">
+          <div class="card-header">
+            <span class="pixel card-title">Fabric</span>
+            <span class="tag">Doporučeno</span>
+          </div>
+          <p>Pro Fabric modloader (verze 1.21.1). Potřebuješ <strong>oba</strong> soubory níže:</p>
+          <div class="download-btns">
+            <a href="https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat/download/7614201" class="btn-download" target="_blank">
+              ⬇ Simple Voice Chat (Fabric)
+            </a>
+            <a href="https://cdn.modrinth.com/data/P7dR8mSH/versions/i5tSkVBH/fabric-api-0.141.3%2B1.21.11.jar" class="btn-download btn-secondary-dl" target="_blank">
+              ⬇ Fabric API (povinné)
+            </a>
+          </div>
+        </div>
+        <div class="download-card">
+          <div class="card-header">
+            <span class="pixel card-title">Forge</span>
+          </div>
+          <p>Pro Forge modloader (verze 1.21.1).</p>
+          <div class="download-btns">
+            <a href="https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat/download/7614145" class="btn-download" target="_blank">
+              ⬇ Simple Voice Chat (Forge)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="install-steps">
+        <h3 class="pixel" style="font-size:0.7rem;margin-bottom:1.5rem;">Jak nainstalovat mod</h3>
+        <ol>
+          <li>Stáhni příslušný <code>.jar</code> soubor (nebo oba pro Fabric).</li>
+          <li>Otevři složku <code>.minecraft/mods</code> – na Windows najdeš přes <code>%appdata%\.minecraft\mods</code>.</li>
+          <li>Přesuň stažený soubor (nebo soubory) do složky <code>mods</code>.</li>
+          <li>Spusť Minecraft přes Fabric/Forge launcher a připoj se na server.</li>
+          <li>Ve hře zmáčkni <kbd>V</kbd> pro nastavení voicechatu.</li>
+        </ol>
+      </div>
+
+      <div class="info-box" id="vc-note-box">
+        <span class="pixel info-icon">💬</span>
+        <p id="vc-note">Voicechat je volitelný – bez modu se na server normálně připojíš, jen neuslyšíš ostatní a oni neuslyší tebe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="pixel">GymJIMC.org</p>
+    <p>Školní Minecraft server · <a href="admin/index.html">Admin</a></p>
+  </footer>
+
+  <div class="toast" id="toast">Adresa zkopírována!</div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
