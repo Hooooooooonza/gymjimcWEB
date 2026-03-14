@@ -36,10 +36,8 @@ function renderEvents(events) {
     return;
   }
 
-  // Sort by date ascending
   const sorted = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
   const now = new Date();
-  // Find the next upcoming event
   const nextIdx = sorted.findIndex(e => new Date(e.date) >= now);
 
   const html = `<div class="events-grid">` + sorted.map((ev, i) => {
@@ -71,5 +69,28 @@ function copyAddress() {
   });
 }
 
+// ── Server status ──
+async function checkServerStatus() {
+  const badge = document.querySelector('.server-badge');
+  try {
+    const res = await fetch('https://api.mcsrvstat.us/3/gymjimc.org');
+    const data = await res.json();
+    if (data.online) {
+      const players = data.players?.online ?? 0;
+      const max = data.players?.max ?? 0;
+      badge.textContent = `● ONLINE – ${players}/${max} hráčů`;
+      badge.style.color = 'var(--green)';
+    } else {
+      badge.textContent = '● OFFLINE';
+      badge.style.color = 'var(--red)';
+      badge.style.background = 'rgba(248,113,113,0.1)';
+      badge.style.borderColor = 'rgba(248,113,113,0.3)';
+    }
+  } catch (e) {
+    badge.textContent = '● Stav neznámý';
+  }
+}
+
 // ── Init ──
 document.addEventListener('DOMContentLoaded', loadContent);
+document.addEventListener('DOMContentLoaded', checkServerStatus);
