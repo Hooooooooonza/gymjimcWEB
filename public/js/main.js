@@ -73,7 +73,7 @@ function copyAddress() {
 async function checkServerStatus() {
   const badge = document.querySelector('.server-badge');
   try {
-    const res = await fetch('https://api.mcsrvstat.us/3/gymjimc.org');
+    const res = await fetch('https://api.mcstatus.io/v2/status/java/gymjimc.org');
     const data = await res.json();
     if (data.online) {
       const players = data.players?.online ?? 0;
@@ -91,6 +91,10 @@ async function checkServerStatus() {
   }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  checkServerStatus();
+  setInterval(checkServerStatus, 10000);
+});
+
 // ── Init ──
 document.addEventListener('DOMContentLoaded', loadContent);
-document.addEventListener('DOMContentLoaded', checkServerStatus);
