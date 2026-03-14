@@ -93,7 +93,7 @@ async function checkServerStatus() {
 
 document.addEventListener('DOMContentLoaded', () => {
   checkServerStatus();
-  setInterval(checkServerStatus, 10);
+  setInterval(checkServerStatus, 1);
 });
 
 // ── Init ──
