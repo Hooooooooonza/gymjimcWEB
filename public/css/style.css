@@ -14,7 +14,7 @@
   --yellow: #fbbf24;
   --radius: 6px;
   --font-body: 'Outfit', sans-serif;
-  --font-pixel: 'Press Start 2P', monospace;
+  --font-tahoma: 'Press Start 2P', monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
