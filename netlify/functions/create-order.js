@@ -92,23 +92,21 @@ exports.handler = async (event) => {
 };
 
 function czAccountToIBAN(accountNumber) {
-  // Format: prefix-number/bankCode or number/bankCode
   const match = accountNumber.match(/^(?:(\d+)-)?(\d+)\/(\d{4})$/);
   if (!match) return accountNumber;
   const prefix = (match[1] || '').padStart(6, '0');
   const number = match[2].padStart(10, '0');
   const bankCode = match[3];
   const bban = bankCode + prefix + number;
-  const check = 98 - mod97('CZ00' + bban);
+  const checkInput = bban + '123500'; // CZ = 12, 35 = pozice
+  const check = 98 - mod97(checkInput);
   return `CZ${String(check).padStart(2,'0')}${bban}`;
 }
 
 function mod97(str) {
   let remainder = 0;
   for (let i = 0; i < str.length; i++) {
-    const c = str.charCodeAt(i);
-    const digit = c >= 65 ? c - 55 : c - 48;
-    remainder = (remainder * (digit < 10 ? 10 : 100) + digit) % 97;
+    remainder = (remainder * 10 + parseInt(str[i])) % 97;
   }
   return remainder;
 }
