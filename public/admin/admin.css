@@ -223,3 +223,21 @@ label { display: block; color: var(--text-muted); font-size: .85rem; margin-bott
   .sidebar-nav { flex-direction: row; gap: .5rem; }
   .admin-main { padding: 1.5rem; }
 }
+
+/* ORDER STATUS */
+.order-status {
+  font-size: .75rem;
+  padding: .3rem .8rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.order-status.paid {
+  background: rgba(74,222,128,0.1);
+  color: var(--green);
+  border: 1px solid rgba(74,222,128,0.3);
+}
+.order-status.pending {
+  background: rgba(251,191,36,0.1);
+  color: var(--yellow);
+  border: 1px solid rgba(251,191,36,0.3);
+}
