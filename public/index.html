@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GymJIMC – Minecraft Server</title>
+  <title>GymJiMC – Minecraft Server</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
@@ -14,7 +14,7 @@
   <header class="hero">
     <div class="hero-bg"></div>
     <nav class="nav">
-      <span class="nav-logo pixel">GymJIMC</span>
+      <span class="nav-logo Verdana">GymJiMC</span>
       <ul>
         <li><a href="#join">Jak se připojit</a></li>
         <li><a href="#events">Eventy</a></li>
@@ -24,8 +24,8 @@
     </nav>
     <div class="hero-content">
       <div class="server-badge">● ONLINE</div>
-      <h1 class="pixel" id="hero-title">GymJIMC</h1>
-      <p class="hero-sub" id="hero-subtitle">Školní Minecraft server pro všechny.</p>
+      <h1 class="pixel" id="hero-title">GymJiMC</h1>
+      <p class="hero-sub" id="hero-subtitle">Minecraft server pro školy.</p>
       <a href="#join" class="btn-primary">Jak se připojit →</a>
     </div>
     <div class="scroll-hint">↓</div>
@@ -34,15 +34,17 @@
   <!-- HOW TO JOIN -->
   <section id="join" class="section">
     <div class="container">
-      <h2 class="section-title pixel">Jak se připojit</h2>
-      <p class="section-lead" id="join-intro">Připojit se může kdokoli – stačí mít Minecraft Java Edition a postupovat podle kroků níže.</p>
+      <h2 class="section-title Verdana">Jak se připojit</h2>
+      <p class="section-lead" id="join-intro">Připojit se může kdokoli – stačí mít Minecraft Java Edition (nebo Bedrock) a postupovat podle kroků níže.</p>
 
       <div class="steps">
         <div class="step">
-          <div class="step-num pixel">01</div>
+          <div class="step-num Verdana">01</div>
           <div class="step-body">
             <h3>Spusť Minecraft Java Edition</h3>
-            <p>Ujisti se, že máš nainstalovaný <strong>Minecraft Java Edition</strong> (ne Bedrock). Verze serveru je <strong>1.21.1</strong>.</p>
+            <p>Ujisti se, že máš nainstalovaný <strong>Minecraft Java Edition</strong> (nebo Bedrock - instrukce níže). Můžeš se připojit přes Minecraft verze<strong> 1.19 až 1.21.11</strong>, ale doporučujeme 1.21.1 - 1.21.11.</p>
+            <p>-
+            <p>Jak se připojit přes Bedrock Edition: Postup je dále popsaný, bedrock je nejlepší spustit přes nejnovější verzi.
           </div>
         </div>
         <div class="step">
@@ -50,10 +52,12 @@
           <div class="step-body">
             <h3>Klikni na „Multiplayer"</h3>
             <p>V hlavním menu Minecraftu klikni na tlačítko <strong>Multiplayer</strong>.</p>
+            <p>-
+            <p>U bedrocku klikni v hlavním menu na Play, a následně v horní liště vyber záložku servers.</p>
           </div>
         </div>
         <div class="step">
-          <div class="step-num pixel">03</div>
+          <div class="step-num tahoma">03</div>
           <div class="step-body">
             <h3>Přidej server</h3>
             <p>Klikni na <strong>Add Server</strong> (nebo „Přidat server"). Do pole <strong>Server Address</strong> zadej přesně tuto adresu:</p>
@@ -61,20 +65,22 @@
               <span id="server-address">gymjimc.org</span>
               <button class="copy-btn" onclick="copyAddress()">Kopírovat</button>
             </div>
+            <p>Na bedrocku klikni na <strong>+ Add Server</strong> (nebo „Přidat server"). Do pole <strong>Server Address</strong> zadej opět gymjimc.org. V kolonce <strong>port</strong> musí být 19132.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num pixel">04</div>
           <div class="step-body">
             <h3>Připoj se a hraj!</h3>
-            <p id="join-step4">Klikni <strong>Done</strong>, server se zobrazí v seznamu. Dvojklikem se připoj. Přijdou instrukce přímo ve hře. Užij si to!</p>
+            <p id="join-step4">Klikni <strong>Done</strong> (na bedroku na <strong>Add server</strong>), server se zobrazí v seznamu. Dvojklikem se připoj. Přijdou instrukce přímo ve hře. Užij si hru!
+            </p>
           </div>
         </div>
       </div>
 
       <div class="info-box">
         <span class="pixel info-icon">ℹ</span>
-        <p id="join-note">Máš problém s připojením? Zkus restartovat Minecraft nebo zkontroluj, zda máš správnou verzi. V případě problémů napiš správci serveru.</p>
+        <p id="join-note">Máš problém s připojením? Zkus restartovat Minecraft nebo zkontroluj, zda máš správnou verzi. V případě problémů nám napiš na mail minecraft@jirovcovka.net!</p>
       </div>
     </div>
   </section>
@@ -91,10 +97,21 @@
     </div>
   </section>
 
+  <section id="events" class="section">
+    <div class="container">
+      <h2 class="section-title Verdana">Discord</h2>
+      <p class="section-lead" id="join-intro">Máme náš discord server. Připojíš se na něj přes odkaz:</p>
+      <div class="address-box">
+            <span id="discord-addres">https://discord.gg/GcMKy5d3Wy</span>
+            <button class="copy-btn" onclick="copyDiscord()">Kopírovat</button>
+      </div>
+    </div>
+  </section>
+  
   <!-- VOICECHAT -->
   <section id="voicechat" class="section">
     <div class="container">
-      <h2 class="section-title pixel">Voicechat</h2>
+      <h2 class="section-title Tahoma">Voicechat</h2>
       <p class="section-lead" id="vc-intro">Na serveru běží <strong>Simple Voice Chat</strong> mod – můžeš mluvit s ostatními hráči přímo ve hře pomocí mikrofonu, prostorově podle polohy.</p>
 
       <p id="vc-desc">Aby voicechat fungoval, musíš si nainstalovat mod do svého Minecraftu. Vyber verzi podle svého modloaderu:</p>
