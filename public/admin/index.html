@@ -151,6 +151,11 @@
       <input type="number" id="item-price" class="input-field" placeholder="Např. 50" min="1" />
       <label>Popis (volitelné)</label>
       <textarea id="item-desc" class="input-field textarea" placeholder="Co hráč dostane…"></textarea>
+      <label>GIF URL (volitelné) – nahraj gif na <a href="https://imgur.com/upload" target="_blank" style="color:var(--green)">imgur.com</a> a vlož přímý odkaz</label>
+      <input type="text" id="item-gif" class="input-field" placeholder="https://i.imgur.com/XXXXXXX.gif" />
+      <div id="item-gif-preview" style="display:none;margin-bottom:1rem;border-radius:8px;overflow:hidden;max-height:150px;text-align:center;">
+        <img id="item-gif-img" src="" style="max-height:150px;border-radius:8px;" />
+      </div>
       <div class="modal-btns">
         <button class="btn-cancel" onclick="closeItemModal()">Zrušit</button>
         <button class="btn-primary" style="font-size:.55rem;" onclick="saveItem()">Uložit</button>
@@ -183,6 +188,25 @@
     </div>
   </div>
 
+  <script>
+    // Live GIF preview in item modal
+    document.addEventListener('DOMContentLoaded', () => {
+      const gifInput = document.getElementById('item-gif');
+      if (gifInput) {
+        gifInput.addEventListener('input', () => {
+          const url = gifInput.value.trim();
+          const preview = document.getElementById('item-gif-preview');
+          const img = document.getElementById('item-gif-img');
+          if (url) {
+            img.src = url;
+            preview.style.display = 'block';
+          } else {
+            preview.style.display = 'none';
+          }
+        });
+      }
+    });
+  </script>
   <script src="admin.js"></script>
 </body>
 </html>

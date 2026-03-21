@@ -63,6 +63,7 @@ function renderShopItems(shop) {
   }
   container.innerHTML = `<div class="events-grid">` + items.map(item => `
     <div class="event-card" style="cursor:pointer;" onclick="openBuyModal('${item.id}')">
+      ${item.gifUrl ? `<div class="shop-gif-wrap"><img src="${escHtml(item.gifUrl)}" class="shop-gif" /></div>` : ''}
       <div class="event-title">${escHtml(item.name)}</div>
       ${item.description ? `<div class="event-desc" style="margin:.5rem 0;">${escHtml(item.description)}</div>` : ''}
       <div style="margin-top:1rem;display:flex;align-items:center;justify-content:space-between;">

@@ -228,6 +228,7 @@ function renderItemsList(items) {
         <div class="admin-event-title">${esc(item.name)}</div>
         <div class="admin-event-date" style="color:var(--green)">${esc(String(item.price))} Kč</div>
         ${item.description ? `<div class="admin-event-desc">${esc(item.description)}</div>` : ''}
+        ${item.gifUrl ? `<img src="${esc(item.gifUrl)}" style="height:40px;border-radius:4px;margin-top:.5rem;" />` : ''}
       </div>
       <div class="row-btns">
         <button class="btn-edit" onclick="openEditItem('${item.id}')">Upravit</button>
@@ -243,6 +244,8 @@ function openAddItem() {
   document.getElementById('item-price').value = '';
   document.getElementById('item-desc').value = '';
   document.getElementById('item-modal-error').style.display = 'none';
+  document.getElementById('item-gif').value = '';
+  document.getElementById('item-gif-preview').style.display = 'none';
   document.getElementById('item-modal').style.display = 'flex';
 }
 
@@ -254,6 +257,15 @@ function openEditItem(id) {
   document.getElementById('item-name').value = item.name;
   document.getElementById('item-price').value = item.price;
   document.getElementById('item-desc').value = item.description || '';
+  document.getElementById('item-gif').value = item.gifUrl || '';
+  const preview = document.getElementById('item-gif-preview');
+  const previewImg = document.getElementById('item-gif-img');
+  if (item.gifUrl) {
+    previewImg.src = item.gifUrl;
+    preview.style.display = 'block';
+  } else {
+    preview.style.display = 'none';
+  }
   document.getElementById('item-modal-error').style.display = 'none';
   document.getElementById('item-modal').style.display = 'flex';
 }
@@ -273,7 +285,8 @@ async function saveItem() {
     errEl.style.display = 'block';
     return;
   }
-  const item = { id: id || crypto.randomUUID(), name, price, description };
+  const gifUrl = document.getElementById('item-gif').value.trim();
+  const item = { id: id || crypto.randomUUID(), name, price, description, gifUrl };
   let items = [...(allContent.shop.items || [])];
   if (id) {
     const idx = items.findIndex(i => i.id === id);
