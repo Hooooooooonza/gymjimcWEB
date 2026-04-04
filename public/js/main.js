@@ -177,11 +177,12 @@ function copyDiscord() {
 }
 
 function copyPlayitAddress() {
-  const addr = document.getElementById('playit-addres').textContent;
-  navigator.clipboard.writeText(addr).then(() => {
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2500);
+  const address = document.getElementById("playit-address").textContent;
+
+  navigator.clipboard.writeText(address).then(() => {
+    const btn = document.querySelector(".copy-btn");
+    btn.textContent = "Zkopírováno!";
+    setTimeout(() => btn.textContent = "Kopírovat", 2000);
   });
 }
 
