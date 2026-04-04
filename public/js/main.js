@@ -176,6 +176,15 @@ function copyDiscord() {
   });
 }
 
+function copyPlayitAddress() {
+  const addr = document.getElementById('playit-addres').textContent;
+  navigator.clipboard.writeText(addr).then(() => {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  });
+}
+
 // ── Server status ──
 async function checkServerStatus() {
   const badge = document.querySelector('.server-badge');
