@@ -222,6 +222,19 @@ body {
 }
 .copy-btn:hover { opacity: .8; }
 
+.copy-bt {
+  background: var(--green);
+  color: #0d0f0e;
+  border: none;
+  border-radius: 4px;
+  padding: .3rem .8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.copy-bt:hover { opacity: .8; }
+
 .info-box {
   display: flex;
   gap: 1rem;
