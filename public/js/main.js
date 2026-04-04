@@ -180,7 +180,7 @@ function copyPlayitAddress() {
   const address = document.getElementById("playit-address").textContent;
 
   navigator.clipboard.writeText(address).then(() => {
-    const btn = document.querySelector(".copy-btn");
+    const btn = document.querySelector(".copy-bt");
     btn.textContent = "Zkopírováno!";
     setTimeout(() => btn.textContent = "Kopírovat", 2000);
   });
